@@ -51,9 +51,9 @@
   <nav class="topnav" id="myTopnav">
 
     <a href="/" class="active">Inicio</a>
-    <a href="/portal?idUsu=<?= echo $codigoUsuario ?>&pagina=1" ?>">Portal</a>
+    <a href="/portal?idUsu='<?php echo htmlspecialchars($codigoUsuario); ?>'&pagina='1'" ?>">Portal</a>
     <a href="/subasta" class="disabled">Subastas</a>
-    <a href="/pujas?idUsu=<?= echo $codigoUsuario ?>">Mis pujas</a>
+    <a href="/pujas?idUsu='<?php echo htmlspecialchars($codigoUsuario); ?>'">Mis pujas</a>
 
     <a href="#loginModal" data-target="#loginModal" class="disabled">Iniciar sesion</a>
     <a href="#registroModal" data-target="#registroModal" class="disabled">Registrarse</a>
@@ -74,7 +74,7 @@
 
     <section>
 
-      <!-- Title: Hora Central Europea / Central European Time -->
+      <!-- Title: Central European Time -->
       <div>
         <span class="fecha"></span>
         <span class="tiempo"></span>
@@ -105,8 +105,8 @@
       <div class='pujas'>
 
         <ul>
-          <li>Subasta Nº <?php echo $pu[$p]['codSubasta'] ?> </li>
-          <li>Tu mejor puja: <?php echo $bestPuja[0]['valor'] ?></li>
+          <li>Subasta Nº <?php echo htmlspecialchars($pu[$p]['codSubasta']); ?> </li>
+          <li>Tu mejor puja: <?php echo htmlspecialchars($bestPuja[0]['valor']); ?></li>
 
         <?php
 
@@ -115,12 +115,12 @@
 
               //echo "<ul><li>Subasta Nº ". $ganadores[0]['codSubasta'] ."</li>";
               //echo "<li>". $users[$codigoGanador - 1]['nomUsu'] ." ". $users[$codigoGanador - 1]['apeUsu'] ."</li>";
-              echo "<li>Puja ganadora: ". $ganadores[0]['valor'] ."</li></ul>";
+              echo "<li>Puja ganadora: ". htmlspecialchars($ganadores[0]['valor']); ."</li></ul>";
 
               //echo "Código de la subasta: ". $pu[$p]['codSubasta'];
 
               echo "<button>
-                <a href='/subasta?idUsu=". $codigoUsuario ."&idSub=". $pu[$p]['codSubasta'] ."'>Volver a subasta</a>
+                <a href='/subasta?idUsu='". htmlspecialchars($codigoUsuario); ."'&idSub='". $pu[$p]['codSubasta'] ."'>Volver a subasta</a>
               </button></div>"
 
             } else {
@@ -130,7 +130,7 @@
                 $bestPuja = $pujas->getBestPuja(intval($pu[$p]['codSubasta']), $codigoUsuario);
 
                 echo "<div class='pujas'><ul><li>Subasta Nº ". $pu[$p]['codSubasta'] ."</li>";
-                echo "<li>Tu mejor puja: ". $bestPuja[0]['valor'] ."</li>";
+                echo "<li>Tu mejor puja: ". htmlspecialchars($bestPuja[0]['valor']); ."</li>";
 
                 $ganadores = $pujas->getPujaWin(intval($pu[$p]['codSubasta']));
                 $codigoGanador = intval($ganadores[0]['codUsu']);
@@ -142,7 +142,7 @@
                 //echo "Código de la subasta: ". $pu[$p]['codSubasta'];
 
                 echo "<button>
-                  <a href='/subasta?idUsu=". $codigoUsuario ."&idSub=". $pu[$p]['codSubasta'] ."'>Volver a subasta</a>
+                  <a href='/subasta?idUsu='". htmlspecialchars($codigoUsuario) ."&idSub='". htmlspecialchars($pu[$p]['codSubasta']) ."'>Volver a subasta</a>
                 </button></div>";
               }
             }

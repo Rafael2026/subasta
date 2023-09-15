@@ -54,9 +54,9 @@
   <nav class="topnav" id="myTopnav">
 
     <a href="/" class="active">Inicio</a>
-    <a href="/portal?idUsu=<?php echo $codigoUsuario ?>&pagina=1">Portal</a>
-    <a href="/subasta?idSub=<?php echo $codigoSubasta ?>&idUsu=<?php echo $codigoUsuario ?>">Subastas</a>
-    <a href="/pujas?idUsu=<?php echo $codigoUsuario ?>">Mis pujas</a>
+    <a href="/portal?idUsu='<?php echo htmlspecialchars($codigoUsuario); ?>&pagina='1'">Portal</a>
+    <a href="/subasta?idSub='<?php echo htmlspecialchars($codigoSubasta); ?>'&idUsu='<?php echo htmlspecialchars($codigoUsuario); ?>">Subastas</a>
+    <a href="/pujas?idUsu='<?php echo htmlspecialchars($codigoUsuario); ?>'">Mis pujas</a>
 
     <a href="#loginModal" data-target="#loginModal" class="login disabled">Iniciar sesion</a>
     <a href="#registroModal" data-target="#registroModal" class="registro disabled">Registrarse</a>
@@ -127,11 +127,11 @@
         <ul>
 
           <li>
-            <img src="{{ asset('img/productos/imagen'. $codigoSubasta .'.jpg') }}" alt="<?php echo $products[$i]['nomProd']; ?>">
+            <img src="img/productos/imagen <?php echo htmlspecialchars($codigoSubasta); ?> '.jpg'" alt="<?php echo htmlspecialchars($products[$i]['nomProd']); ?>">
           </li>
 
           <li>
-            <h3>Producto: <?php echo $products[$i]['nomProd']; ?></h3>
+            <h3>Producto: <?php echo htmlspecialchars($products[$i]['nomProd']); ?></h3>
           </li>
 
           <li>
@@ -161,18 +161,18 @@
         </ul>
 
         <button>
-          <a href="/portal?idUsu=<?php echo $codigoUsuario; ?>&pagina=1" class="atras">Volver atrás</a>
+          <a href="/portal?idUsu='<?php echo htmlspecialchars($codigoUsuario); ?>'&pagina='1'" class="atras">Volver atrás</a>
         </button>
 
       </div>
 
       <form method="GET" class="pujaForm">
 
-        <input type="number" min="<?php echo $codigoSubasta; ?>" max="<?php echo $codigoSubasta; ?>" value="<?php echo $codigoSubasta; ?>" class="idSub" name="idSub">
+        <input type="number" min="<?php echo htmlspecialchars($codigoSubasta); ?>" max="<?php echo htmlspecialchars($codigoSubasta); ?>" value="<?php echo htmlspecialchars($codigoSubasta); ?>" class="idSub" name="idSub">
 
-        <input type="number" min="<?php echo $codigoUsuario; ?>" max="<?php echo $codigoUsuario; ?>" value="<?php echo $codigoUsuario; ?>" class="idUsu" name="idUsu">
+        <input type="number" min="<?php echo htmlspecialchars($codigoUsuario); ?>" max="<?php echo htmlspecialchars($codigoUsuario); ?>" value="<?php echo htmlspecialchars($codigoUsuario); ?>" class="idUsu" name="idUsu">
 
-        <input type="number" min="<?php echo $puWin[0]['valor']; ?>" value="<?php echo $puWin[0]['valor']; ?>" class="valorPuja" name="puja">
+        <input type="number" min="<?php echo htmlspecialchars($puWin[0]['valor']); ?>" value="<?php echo htmlspecialchars($puWin[0]['valor']); ?>" class="valorPuja" name="puja">
 
         <button class="pujar" name="pujar" value="Crear puja">Pujar</button>
 
@@ -256,7 +256,7 @@
       }
     }
 
-    echo '<noscript type="text/javascript">grafica('. $codigoSubasta .', '. json_encode($fechas) .', '. json_encode($valores) .'</noscript>';
+    echo '<noscript type="text/javascript">grafica('. htmlspecialchars($codigoSubasta) .', '. json_encode($fechas) .', '. json_encode($valores) .'</noscript>';
 
   ?>
 

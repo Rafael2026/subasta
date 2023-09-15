@@ -68,7 +68,7 @@
 
     <section>
 
-      <h2>Producto Nº <?php echo $id ?></h2>
+      <h2>Producto Nº <?php echo htmlspecialchars($id); ?></h2>
 
       <!--<ul>
 
