@@ -120,7 +120,7 @@
               //echo "Código de la subasta: ". $pu[$p]['codSubasta'];
 
               echo "<button>
-                <a href='/subasta?idUsu='". htmlspecialchars($codigoUsuario); ."'&idSub='". $pu[$p]['codSubasta'] ."'>Volver a subasta</a>
+                <a href='/subasta?idUsu='". htmlspecialchars($codigoUsuario) ."'&idSub='". $pu[$p]['codSubasta'] ."'>Volver a subasta</a>
               </button></div>"
 
             } else {
