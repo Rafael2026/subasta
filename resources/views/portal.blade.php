@@ -144,7 +144,7 @@
         </li>
 
         <li>
-          <a href="/portal?idUsu=<?php echo htmlspecialchars($codigo9; ?>&pagina=3">3</a>
+          <a href="/portal?idUsu=<?php echo htmlspecialchars($codigo9); ?>&pagina=3">3</a>
         </li>
 
         <li>
