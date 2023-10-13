@@ -115,13 +115,13 @@
 
               //echo "<ul><li>Subasta Nº ". $ganadores[0]['codSubasta'] ."</li>";
               //echo "<li>". $users[$codigoGanador - 1]['nomUsu'] ." ". $users[$codigoGanador - 1]['apeUsu'] ."</li>";
-              echo "<li>Puja ganadora: ". htmlspecialchars($ganadores[0]['valor']); ."</li></ul>";
+              echo "<li>Puja ganadora: ". htmlspecialchars($ganadores[0]['valor']) ."</li></ul>";
 
               //echo "Código de la subasta: ". $pu[$p]['codSubasta'];
 
               echo "<button>
                 <a href='/subasta?idUsu='". htmlspecialchars($codigoUsuario) ."'&idSub='". $pu[$p]['codSubasta'] ."'>Volver a subasta</a>
-              </button></div>"
+              </button></div>";
 
             } else {
 
@@ -130,7 +130,7 @@
                 $bestPuja = $pujas->getBestPuja(intval($pu[$p]['codSubasta']), $codigoUsuario);
 
                 echo "<div class='pujas'><ul><li>Subasta Nº ". $pu[$p]['codSubasta'] ."</li>";
-                echo "<li>Tu mejor puja: ". htmlspecialchars($bestPuja[0]['valor']); ."</li>";
+                echo "<li>Tu mejor puja: ". htmlspecialchars($bestPuja[0]['valor']) ."</li>";
 
                 $ganadores = $pujas->getPujaWin(intval($pu[$p]['codSubasta']));
                 $codigoGanador = intval($ganadores[0]['codUsu']);
