@@ -1,7 +1,7 @@
 # Dockerfile
 
-# Use the official PHP 8.0 image as a parent image
-FROM php:8-fpm
+# Use the last official PHP image as a parent image
+FROM php:8.2-cli
 
 # Set the working directory to /app
 WORKDIR /app
