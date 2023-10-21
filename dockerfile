@@ -10,7 +10,7 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get upgrade -y \
     git \
     unzip \
     && apt-get clean \
