@@ -1,7 +1,7 @@
 # Dockerfile
 
 # Use the last official PHP image as a parent image
-FROM php:8.2-cli
+FROM php:8.2-cli-alpine3.18
 
 # Set the working directory to /app
 WORKDIR /app
