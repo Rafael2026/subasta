@@ -202,7 +202,7 @@
 
               $pujas->addPujas($codigo, $valor, $fecha, $codigoUsuario, $codigoSubasta);
 
-              header("Location: https://subasta-production.up.railway.app/subasta?idSub=$codigoSubasta&idUsu=$codigoUsuario&puja=$valor");
+              header("Location: https://subasta-production.up.railway.app/subasta?idSub='$codigoSubasta'&idUsu='$codigoUsuario'&puja='$valor'");
               exit();
             }
           }

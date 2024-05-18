@@ -1,7 +1,7 @@
 # Dockerfile
 
-# Use the official PHP 8.0 image as a parent image
-FROM php:8-fpm
+# Use the last official PHP image as a parent image
+FROM php:8.2-cli-alpine3.18
 
 # Set the working directory to /app
 WORKDIR /app
@@ -10,7 +10,7 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get upgrade -y \
     git \
     unzip \
     && apt-get clean \
