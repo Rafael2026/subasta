@@ -1,3 +1,14 @@
+<IfModule mod_headers.c>
+
+    # XSS Protection Not Enabled
+    Header set X-XSS-Protection "1; mode=block"
+
+    # Missing X-Content-Type-Options is not specified
+    Header set X-Content-Type-Options nosniff
+</IfModule>
+
+
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
