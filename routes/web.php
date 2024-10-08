@@ -62,9 +62,9 @@
     return view('tablas');
   });
 
-  /*Route::get('/producto', function() {
+  Route::get('/producto', function() {
     return view('producto');
-  });*/
+  });
 
   //Route::get('example-route', 'ExampleController')->middleware(AddCspHeaders::class);
 
